@@ -2,7 +2,8 @@ name: FC.CI.Node-CI
 
 on:
   pull_request:
-    branches: ["develop"]
+    branches:
+      - develop
 
 jobs:
   build:
@@ -19,4 +20,7 @@ jobs:
       - run: npm test
 
       - name: SonarCloud Scan
-        uses: SonarSource/sonarcloud-github-action@v1.6
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
