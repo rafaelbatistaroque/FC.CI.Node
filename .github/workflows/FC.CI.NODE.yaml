@@ -2,7 +2,8 @@ name: FC.CI.Node-CI
 
 on:
   pull_request:
-    branches: ["develop"]
+    branches:
+      - develop
 
 jobs:
   build:
